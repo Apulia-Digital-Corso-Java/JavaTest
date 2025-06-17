@@ -1,4 +1,5 @@
 import Dto.UtenteDTO;
+import Dto.AppuntiMaterie;
 
 import java.util.Objects;
 
@@ -36,6 +37,11 @@ public class Main {
 		boolean test = Objects.equals(u3.getId(), u4.getId());
 
 		System.out.println("u3.id e u4.id sono uguali? " + test);
+
+
+		AppuntiMaterie am = new AppuntiMaterie(u2,"filepdf");
+
+		System.out.println("Appunti materie file name= " + am.getNomeFilePDF());
 
 
 
