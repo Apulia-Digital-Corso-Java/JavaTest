@@ -5,7 +5,7 @@ import java.util.Objects;
 public class BaseDTO {
 	private Long id;
 
-	BaseDTO () {
+	public BaseDTO() {
 		this.id = 123456L;
 	}
 
