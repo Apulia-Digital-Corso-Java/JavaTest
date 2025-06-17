@@ -2,6 +2,9 @@ import Dto.UtenteDTO;
 
 import java.util.Objects;
 
+
+
+
 public class Main {
 
 	public static void main (String[] args){
@@ -33,5 +36,9 @@ public class Main {
 		boolean test = Objects.equals(u3.getId(), u4.getId());
 
 		System.out.println("u3.id e u4.id sono uguali? " + test);
-	}
+
+
+
 }
+
+
