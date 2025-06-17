@@ -60,5 +60,9 @@ public class UtenteDTO extends BaseDTO {
 	public int hashCode() {
 		return Objects.hash(getId(), nome, cognome);
 	}
-}
 
+
+
+
+
+}
