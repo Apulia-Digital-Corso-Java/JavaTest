@@ -24,6 +24,10 @@ public class Account extends  BaseDTO{
 		this.utente = utente;
 	}
 
+	public Account () {
+
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -64,7 +68,7 @@ public class Account extends  BaseDTO{
 		if (this.utente.equals(u)){
 			return "L' " + this.utente.toString() + " ha eseguito il login in data: " + this.dataAccesso;
 		}
-		return "L'utente non può loggarsi!";
+		return "L'Utente non può loggarsi!";
 	}
 
 	public String logout (UtenteDTO u){
