@@ -1,4 +1,6 @@
+import DB.DBCorsi;
 import Dto.Account;
+import Dto.CorsoDTO;
 import Dto.UtenteDTO;
 
 import java.util.Objects;
@@ -7,6 +9,9 @@ public class Main {
 
 	public static void main (String[] args){
 
+		DBCorsi dbCorsi= new DBCorsi();
+		CorsoDTO corsoJavaAvanz= new CorsoDTO("Java Avanzato", 200);
+		CorsoDTO corsoHTML= new CorsoDTO("HTML e CSS", 1900);
 		UtenteDTO u1 = new UtenteDTO("Pasquale", "S");
 		UtenteDTO u2 = new UtenteDTO("Francesco", "S");
 		UtenteDTO u3 = new UtenteDTO("Tizio", "S");
@@ -23,6 +28,11 @@ public class Main {
 		System.out.println(a.logout(u1));
 		System.out.println();
 		System.out.println(a2.logout(u2));
+		dbCorsi.aggCorso(corsoJavaAvanz);
+		dbCorsi.aggCorso(corsoHTML);
+		dbCorsi.cancCorso(corsoHTML);
+		dbCorsi.stampaListaCorsi();
+
 
 	}
 }
