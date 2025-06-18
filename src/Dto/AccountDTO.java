@@ -1,15 +1,17 @@
 package Dto;
 
+import java.util.List;
+
 public class AccountDTO {
     private long id;
     private String nome;
     private String cognome;
     private String email;
-    private List<Ruolo> ruoli;
+    private List<RuoloDTO> ruoli;
 
     public AccountDTO() {}
 
-    public AccountDTO(long id, String nome, String cognome, String email, List<Ruolo> ruoli) {
+    public AccountDTO(long id, String nome, String cognome, String email, List<RuoloDTO> ruoli) {
         this.id = id;
         this.nome = nome;
         this.cognome = cognome;
@@ -31,10 +33,10 @@ public class AccountDTO {
 
     // Getter e Setter Email
     public String getEmail() { return email; }
-    public String setEmail(String email) { this.email = email; }
+    public void setEmail(String email) { this.email = email; }
 
     public List<RuoloDTO> getRuoli() { return ruoli; }
 
-    public void setRuoli(List<ruoloDTO> ruoli) { this.ruoli = ruoli; }
+    public void setRuoli(List<RuoloDTO> ruoli) { this.ruoli = ruoli; }
 
 }

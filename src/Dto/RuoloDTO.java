@@ -7,11 +7,11 @@ public class RuoloDTO {
 
     public RuoloDTO() {}
 
-    public long getId() { return id; }
+    public long getId() { return this.Id; }
 
-    public void setId(long id) { this.id = id; }
+    public void setId(long id) { this.Id = id; }
 
-    public String getNome() { return nome; }
+    public String getNome() { return this.nome; }
 
     public void setNome(String nome) { this.nome = nome; }
 

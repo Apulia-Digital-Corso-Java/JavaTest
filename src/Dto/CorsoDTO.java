@@ -6,7 +6,7 @@ public class CorsoDTO {
     private String descrizione;
     private String docente;
 
-    public CorsaDTO() {}
+    public CorsoDTO() {}
 
     public CorsoDTO(long id, String nome, String descrizione, String docente) {
         this.id = id;
