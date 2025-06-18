@@ -3,7 +3,7 @@ package Dto;
 import java.time.Instant;
 import java.util.Date;
 
-public class Account extends  BaseDTO{
+public class AccountDTO extends  BaseDTO{
 
 	private String username;
 	private String password;
@@ -13,7 +13,7 @@ public class Account extends  BaseDTO{
 
 	private UtenteDTO utente;
 
-	public Account(String username, String password, String email, String telNumber, UtenteDTO utente) {
+	public AccountDTO (String username, String password, String email, String telNumber, UtenteDTO utente) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -24,7 +24,7 @@ public class Account extends  BaseDTO{
 		this.utente = utente;
 	}
 
-	public Account () {
+	public AccountDTO () {
 
 	}
 
