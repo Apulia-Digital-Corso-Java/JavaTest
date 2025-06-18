@@ -1,5 +1,6 @@
 import Dto.Account;
 import Dto.UtenteDTO;
+import DB.GestioneCorso;
 
 import java.util.Objects;
 
@@ -23,6 +24,9 @@ public class Main {
 		System.out.println(a.logout(u1));
 		System.out.println();
 		System.out.println(a2.logout(u2));
+
+		GestioneCorso gestione = new GestioneCorso();
+		gestione.StampaCorsi();
 
 	}
 }
