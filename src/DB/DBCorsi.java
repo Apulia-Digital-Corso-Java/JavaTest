@@ -7,39 +7,44 @@ import java.util.Objects;
 
 public class DBCorsi
 {
- private ArrayList<CorsoDTO> listaCorsi= new ArrayList<CorsoDTO>();
+ private ArrayList<CorsoDTO> listaCorsi= null; //inizializzerò la lista nel costruttore
 
     public DBCorsi()
     {
-        //è vuoto perché non ha alcuna classe padre
+        //non c'è il "super()" perché non c'è alcuna classe padre
+        listaCorsi= new ArrayList<CorsoDTO>();
     }
 
-    public DBCorsi(ArrayList<CorsoDTO> listaCorsi)
+    /*public DBCorsi(ArrayList<CorsoDTO> listaCorsi) //NON VA AGGIUNTO POICHE' DALL'ESTERNO NON DEVO POTER SETTARE UNA LISTA (pensa se ti aggiungono una lista fatta male, con tipi diversi da CorsoDTO...)
     {
-        //non c'è il "super()" perché non c'è alcuna classe padre
+
         this.listaCorsi = listaCorsi;
-    }
+    }*/
 
     public ArrayList<CorsoDTO> getListaCorsi() {
         return listaCorsi;
     }
 
-    @Override
-    public String toString() {
+    /*@Override
+    public String toString() //l'override di toString non è necessario (NON AGGIUNGERLO) in questo caso (meglio stampaListaCorsi)
+    {
         return "DBCorsi{"+
                 "listaCorsi=" + listaCorsi +
                 '}';
-    }
+    }*/
 
-    public void setListaCorsi(ArrayList<CorsoDTO> listaCorsi) {
+    /*public void setListaCorsi(ArrayList<CorsoDTO> listaCorsi) //anche questo setter NON va aggiunto, poiché non devo poterlo settare dall'esterno
+    {
         this.listaCorsi = listaCorsi;
-    }
+    }*/
 
     @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        DBCorsi dbCorsi = (DBCorsi) o;
-        return Objects.equals(listaCorsi, dbCorsi.listaCorsi);
+    public boolean equals(Object o) //intellij ti suggerisce metodi sbagliati... chatgpt antelitteram
+    {
+        if (this==o) return true; //se l'hashcode di questa istanza di BDCorsi è uguale a quello dell'oggetto o, i due oggetti sono uguali
+        if (!(o instanceof DBCorsi)) return false; //se la classe di o è diversa da DBCorsi, o NON è uguale a questa istanza di DBCorsi
+        DBCorsi dbCorsi= (DBCorsi) o; //fo il casting di o dal tipo "Oggetto generico" a "DBCorsi"
+        return Objects.equals(listaCorsi, dbCorsi.listaCorsi); //sono abbastanza sicuro sia sbagliato, perché controlla solo gli hashcode... vedrò domani
     }
 
     @Override
@@ -48,10 +53,10 @@ public class DBCorsi
     }
 
 
-    public void aggCorso (CorsoDTO corso)
+    public String aggCorso (CorsoDTO corso)
     {
         this.listaCorsi.add(corso);
-        System.out.println("Il corso \""+ corso.getNome() + "\" è stato aggiunto con successo");
+        return "Il corso \""+ corso.getNome() + "\" è stato aggiunto con successo";
     }
 
     public void cancCorso (CorsoDTO corso)
