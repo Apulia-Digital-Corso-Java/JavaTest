@@ -39,8 +39,7 @@ public class Main {
 			String disponibilità = libro.prestabile()?
 					"disponibile" : "non disponibile" ;
 
-			System.out.println("Titolo: " + libro.getTitolo() + " - disponibilità: + dispo nibilità");
-
+			System.out.println("Titolo: " + libro.getTitolo()  );
 
 		}
 	}
