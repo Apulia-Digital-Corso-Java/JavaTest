@@ -92,6 +92,27 @@ public class Main {
 			System.out.println("- " + utente);
 		}
 
+		// --- STAMPA UTENTI ISCRITTI A OGNI CORSO ---
+		System.out.println("\n--- Utenti iscritti a ciascun corso ---");
+
+		List<CorsoDTO> tuttiICorsi = GestioneCorso.getTuttiICorsi();
+
+		for (CorsoDTO corso : tuttiICorsi) {
+			System.out.println("\nCorso: " + corso.getNomeCorso());
+			List<UtenteDTO> iscritti = corso.getUtentiIscritti();
+
+			if (iscritti.isEmpty()) {
+				System.out.println("  Nessun utente iscritto.");
+			} else {
+				for (UtenteDTO utente : iscritti) {
+					System.out.println("  - " + utente.getNome() + " " + utente.getCognome());
+				}
+			}
+		}
+
+
+
+
 
 	}
 }
