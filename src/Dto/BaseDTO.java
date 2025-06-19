@@ -4,7 +4,8 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.random.RandomGenerator;
 
-public class BaseDTO {
+public class BaseDTO //classe che fa sì che ogni volta che una classe figlia di BaseDTO viene istanziata, essa abbia un id casuale.
+{
 	private int id;
 
 	BaseDTO () {

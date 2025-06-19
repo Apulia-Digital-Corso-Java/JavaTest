@@ -6,7 +6,7 @@ public class CorsoDTO
 	private int durata;
 	private UtenteDTO docenteCorso;
 
-	public CorsoDTO(String nomeCorso, int durata, UtenteDTO docenteCorso) {
+	public CorsoDTO(String nomeCorso, int durata /*UtenteDTO docenteCorso*/) {
 		this.nomeCorso = nomeCorso;
 		this.durata = durata;
 		this.docenteCorso= docenteCorso;
