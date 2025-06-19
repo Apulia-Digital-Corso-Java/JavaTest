@@ -10,6 +10,7 @@ public class Main {
 		System.out.println("Tutti i corsi:");
 		GestioneCorso.getTuttiICorsi().forEach(System.out::println);
 
+
 		System.out.println("\nAggiungo un nuovo corso:");
 		boolean aggiunto = GestioneCorso.aggiungiCorso(new CorsoDTO("Informatica Generale", 15));
 		System.out.println(aggiunto ? "Corso aggiunto!" : "Corso già presente.");
@@ -20,6 +21,7 @@ public class Main {
 
 		System.out.println("\nLista aggiornata:");
 		GestioneCorso.getTuttiICorsi().forEach(System.out::println);
+
 
 	}
 }
