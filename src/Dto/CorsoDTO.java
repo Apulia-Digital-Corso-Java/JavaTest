@@ -12,16 +12,19 @@ public class CorsoDTO
 		this.docenteCorso= docenteCorso;
 	}
 
-	public String getNomeCorso() {
+	public String getNomeCorso()
+	{
 		return nomeCorso;
 	}
 
-	public int getDurata() {
+	public int getDurata()
+	{
 		return durata;
 	}
 
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return nomeCorso + " (" + durata + " ore)";
 	}
 }

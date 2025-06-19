@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class GestioneCorso {
+public class GestioneCorso
+{
 	private static List<CorsoDTO> corsi = new ArrayList<>();
 
 	static {
@@ -31,11 +32,13 @@ public class GestioneCorso {
 		corsi.add(new CorsoDTO("Docker e Kubernetes", 40));
 	}
 
-	public static List<CorsoDTO> getTuttiICorsi() {
+	public static List<CorsoDTO> getTuttiICorsi()
+	{
 		return new ArrayList<>(corsi);
 	}
 
-	public static CorsoDTO getCorso(String nomeCorso) {
+	public static CorsoDTO getCorso(String nomeCorso)
+	{
 		Optional<CorsoDTO> trovato = corsi.stream()
 			.filter(c -> c.getNomeCorso().equalsIgnoreCase(nomeCorso))
 			.findFirst();
