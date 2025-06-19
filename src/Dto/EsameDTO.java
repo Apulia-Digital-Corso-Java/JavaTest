@@ -2,7 +2,7 @@ package Dto;
 
 import java.time.LocalDateTime;
 
-public class EsameDTO {
+public class EsameDTO extends BaseDTO{
 	private UtenteDTO utente;
 	private CorsoDTO corso;
 	private String dataEsame;
@@ -80,7 +80,8 @@ public class EsameDTO {
 	@Override
 	public String toString() {
 		return "Esame{" +
-			"utente=" + utente.getNome() + " " + utente.getCognome() +
+			"ID: "+ getId() +
+			" ,utente=" + utente.getNome() + " " + utente.getCognome() +
 			", corso=" + corso.getNomeCorso() +
 			", dataEsame='" + dataEsame + '\'' +
 			", voto=" + voto +
