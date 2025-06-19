@@ -1,27 +1,20 @@
 package Dto;
 
 import java.util.Objects;
-import java.util.Random;
-import java.util.random.RandomGenerator;
 
 public class BaseDTO {
-	private int id;
+	private Long id;
 
 	BaseDTO () {
-
-		this.id = getRandomNumber(1,9999999);
+		this.id = 123456L;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
-	}
-
-	private int getRandomNumber(int min, int max) {
-		return (int) ((Math.random() * (max - min)) + min);
 	}
 
 	@Override
