@@ -9,6 +9,7 @@ public class CorsoDTO extends BaseDTO
     private String nome;
     private int durOre;
 
+
     public CorsoDTO()
     {
         super();
