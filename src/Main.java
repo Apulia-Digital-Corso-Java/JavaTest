@@ -30,6 +30,7 @@ public class Main {
 
 
 		List<LibriDTO> libri = LibriDTO.creaElencoLibri();
+		System.out.println("-----------------");
 
 		System.out.println("Elenco dei libri e disponibilità:");
 

@@ -27,13 +27,13 @@ public class LibriDTO {
 creaElencoLibri() {
         List<LibriDTO> elencoLibri = new ArrayList<>();
 
-        elencoLibri.add(new LibriDTO("Il signore degli anlli",true));
+        elencoLibri.add(new LibriDTO("Il signore degli anlli 3 - Disponibile al prestito",true));
 
-        elencoLibri.add(new LibriDTO("Harry Potter",true));
+        elencoLibri.add(new LibriDTO("Harry Potter 1 - Prestato fino al 25/10/2025",false));
 
-        elencoLibri.add(new LibriDTO("Il piccolo principe",true));
+        elencoLibri.add(new LibriDTO("Il piccolo principe - Disponibile al prestito",true));
 
-        elencoLibri.add(new LibriDTO("National Geographic",true));
+        elencoLibri.add(new LibriDTO("National Geographic- Disponibile al prestito ",true));
 
         return elencoLibri;
     }
