@@ -1,8 +1,10 @@
 package Dto;
 
-public class CorsoDTO {
+public class CorsoDTO
+{
 	private String nomeCorso;
 	private int durata;
+	private UtenteDTO docenteCorso;
 
 	public CorsoDTO(String nomeCorso, int durata) {
 		this.nomeCorso = nomeCorso;
