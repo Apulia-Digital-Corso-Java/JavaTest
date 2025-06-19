@@ -1,12 +1,14 @@
+import DB.GestionUtente;
 import DB.GestioneCorso;
 import Dto.AccountDTO;
 import Dto.CorsoDTO;
+import Dto.Esame;
 import Dto.UtenteDTO;
 
 public class Main {
 
 	public static void main (String[] args){
-
+		/*
 		System.out.println("Tutti i corsi:");
 		GestioneCorso.getTuttiICorsi().forEach(System.out::println);
 
@@ -21,6 +23,16 @@ public class Main {
 
 		System.out.println("\nLista aggiornata:");
 		GestioneCorso.getTuttiICorsi().forEach(System.out::println);
+		*/
+
+
+		UtenteDTO u1 = new UtenteDTO();
+
+		Esame e1 = new Esame(GestionUtente.getIdUtenteFromNomeCognome("Abanoub", "Kedis"),
+				GestioneCorso.getCorso("Programmazione Java").getCorsoID());
+
+		System.out.println(e1);
+
 
 
 	}

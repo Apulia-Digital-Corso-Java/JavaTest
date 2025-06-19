@@ -1,10 +1,20 @@
 package Dto;
 
-public class CorsoDTO {
+public class CorsoDTO extends BaseDTO {
 	private String nomeCorso;
 	private int durata;
+	private int CorsoID;
+
+	public int getCorsoID() {
+		return CorsoID;
+	}
+
+	public void setCorsoID(int corsoID) {
+		CorsoID = corsoID;
+	}
 
 	public CorsoDTO(String nomeCorso, int durata) {
+		this.CorsoID = getId();
 		this.nomeCorso = nomeCorso;
 		this.durata = durata;
 	}

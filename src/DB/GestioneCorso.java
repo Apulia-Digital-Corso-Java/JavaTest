@@ -42,6 +42,13 @@ public class GestioneCorso {
 		return trovato.orElse(null);
 	}
 
+	public static CorsoDTO getCorso(int CorsoID) {
+		Optional<CorsoDTO> trovato = corsi.stream()
+				.filter(c -> c.getCorsoID() == CorsoID)
+				.findFirst();
+		return trovato.orElse(null);
+	}
+
 	public static boolean aggiungiCorso(CorsoDTO corso) {
 		if (getCorso(corso.getNomeCorso()) == null) {
 			corsi.add(corso);
