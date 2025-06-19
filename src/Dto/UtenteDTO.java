@@ -5,6 +5,14 @@ import java.util.Objects;
 public class UtenteDTO extends BaseDTO {
 	private String nome;
 	private String cognome;
+	private int utenteID;
+	public int getUtenteID() {
+		return utenteID;
+	}
+
+	public void setUtenteID(int utenteID) {
+		this.utenteID = utenteID;
+	}
 
 	// Costruttori
 	public UtenteDTO () {
