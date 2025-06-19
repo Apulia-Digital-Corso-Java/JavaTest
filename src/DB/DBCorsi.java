@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class DBCorsi
 {
- private ArrayList<CorsoDTO> listaCorsi= null; //inizializzerò la lista nel costruttore
+ private  static ArrayList<CorsoDTO> listaCorsi= null; //inizializzerò la lista nel costruttore
 
     public DBCorsi()
     {
@@ -21,7 +21,8 @@ public class DBCorsi
         this.listaCorsi = listaCorsi;
     }*/
 
-    public ArrayList<CorsoDTO> getListaCorsi() {
+    public ArrayList<CorsoDTO> getListaCorsi()
+    {
         return listaCorsi;
     }
 
@@ -61,22 +62,15 @@ public class DBCorsi
 
     public void cancCorso (CorsoDTO corso)
     {
-        if (listaCorsi.remove(corso)) //non solo rimuove eventualmente il corso indicato, ma se l'operazione ha avuto successo (quindi se c'era un corso nella lista e lo ha eliminato) restituisce true, mentre se il corso già non c'era nella lista, restituisce false
+        /*if (listaCorsi.remove(corso)) //non solo rimuove eventualmente il corso indicato, ma se l'operazione ha avuto successo (quindi se c'era un corso nella lista e lo ha eliminato) restituisce true, mentre se il corso già non c'era nella lista, restituisce false
         {
             System.out.println("Il corso \""+ corso.getNome()+ "\" è stato rimosso con successo");
         }
         else
         {
             System.out.println("Il corso \""+ corso.getNome() + "\" non è stato rimosso poiché già non presente nella lista dei corsi");
-        }
+        }*/
     }
 
-    public void stampaListaCorsi()
-    {
-        System.out.println("Ecco tutti i corsi presenti: ");
-        for (CorsoDTO c: listaCorsi)
-        {
-            System.out.println(c.getNome()+ " (durata: "+ c.getDurOre()+ " ore)");
-        }
-    }
+
 }
