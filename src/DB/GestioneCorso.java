@@ -1,10 +1,9 @@
 package DB;
 
 import Dto.CorsoDTO;
-
+import Dto.UtenteDTO;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class GestioneCorso {
 	private static List<CorsoDTO> corsi = new ArrayList<>();
@@ -29,17 +28,27 @@ public class GestioneCorso {
 		corsi.add(new CorsoDTO("Machine Learning", 60));
 		corsi.add(new CorsoDTO("Cloud AWS", 30));
 		corsi.add(new CorsoDTO("Docker e Kubernetes", 40));
+
+		// Esempio: iscrivere i primi 3 utenti al corso "Programmazione Java"
+		CorsoDTO corsoJava = getCorso("Programmazione Java");
+		List<UtenteDTO> utenti = GestioneUtenti.getTuttiGliUtenti();
+		if (corsoJava != null && utenti.size() >= 3) {
+			corsoJava.iscriviUtente(utenti.get(0));
+			corsoJava.iscriviUtente(utenti.get(1));
+			corsoJava.iscriviUtente(utenti.get(2));
+		}
 	}
 
+	// CRUD per corsi
 	public static List<CorsoDTO> getTuttiICorsi() {
 		return new ArrayList<>(corsi);
 	}
 
 	public static CorsoDTO getCorso(String nomeCorso) {
-		Optional<CorsoDTO> trovato = corsi.stream()
+		return corsi.stream()
 			.filter(c -> c.getNomeCorso().equalsIgnoreCase(nomeCorso))
-			.findFirst();
-		return trovato.orElse(null);
+			.findFirst()
+			.orElse(null);
 	}
 
 	public static boolean aggiungiCorso(CorsoDTO corso) {
@@ -53,4 +62,43 @@ public class GestioneCorso {
 	public static boolean rimuoviCorso(String nomeCorso) {
 		return corsi.removeIf(c -> c.getNomeCorso().equalsIgnoreCase(nomeCorso));
 	}
+
+	// GESTIONE UTENTI NEI CORSI
+
+	public static boolean iscriviUtenteACorso(String nomeCorso, UtenteDTO utente) {
+		CorsoDTO corso = getCorso(nomeCorso);
+		if (corso != null && utente != null) {
+			corso.iscriviUtente(utente);
+			return true;
+		}
+		return false;
+	}
+
+	public static boolean rimuoviUtenteDaCorso(String nomeCorso, UtenteDTO utente) {
+		CorsoDTO corso = getCorso(nomeCorso);
+		if (corso != null && utente != null) {
+			corso.rimuoviUtente(utente);
+			return true;
+		}
+		return false;
+	}
+
+	public static List<UtenteDTO> getUtentiIscrittiAlCorso(String nomeCorso) {
+		CorsoDTO corso = getCorso(nomeCorso);
+		if (corso != null) {
+			return corso.getUtentiIscritti();
+		}
+		return new ArrayList<>();
+	}
+
+	public static List<CorsoDTO> getCorsiPerUtente(UtenteDTO utente) {
+		List<CorsoDTO> corsiUtente = new ArrayList<>();
+		for (CorsoDTO corso : corsi) {
+			if (corso.getUtentiIscritti().contains(utente)) {
+				corsiUtente.add(corso);
+			}
+		}
+		return corsiUtente;
+	}
+
 }
