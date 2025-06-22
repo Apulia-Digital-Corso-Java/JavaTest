@@ -17,15 +17,18 @@ public class Main {
 		System.out.println("L'utente "+ u3.getNome()+" "+ u3.getCognome()+" è stato creato correttamente");
 
 		//CREO I 3 ACCOUNT DEI 3 UTENTI
-		AccountDTO a1=new AccountDTO("Nintendo","MammaMia","mario@gmail.com","0", u1);
-		System.out.println("L'account per l'utente "+ u1.getNome()+" "+ u1.getCognome()+" è stato creato correttamente");
-		AccountDTO a2=new AccountDTO("Nintendo2","MammaMia2","luigi@gmail.com","1", u2);
-		System.out.println("L'account per l'utente "+ u2.getNome()+" "+ u2.getCognome()+" è stato creato correttamente");
-		AccountDTO a3=new AccountDTO("Galaxy","Luma69","galaxy@gmail.com","2", u3);
-		System.out.println("L'account per l'utente "+ u3.getNome()+" "+ u3.getCognome()+" è stato creato correttamente");
-
-
+		AccountDTO a1=new AccountDTO("Nintendo85","MammaMia","mariorossi@gmail.com","0", u1);
 		System.out.println(a1.login(u1));
+		System.out.println(a1.logout(u1));
+		AccountDTO a2=new AccountDTO("Ghost01","MammaMia2","luigiverdi@gmail.com","1", u2);
+		System.out.println(a1.login(u2));
+		System.out.println(a1.logout(u2));
+		AccountDTO a3=new AccountDTO("QueenUniverse","Luma69","rosalindagalaxy@gmail.com","2", u3);
+		System.out.println(a1.login(u3));
+		System.out.println(a1.logout(u3));
+
+
+
 		System.out.println("\nAggiungo un nuovo corso:");
 		boolean aggiunto = GestioneCorsi.aggiungiCorso(new CorsoDTO("Informatica Generale", 15));
 		System.out.println(aggiunto ? "Corso aggiunto!" : "Corso già presente.");
