@@ -18,25 +18,30 @@ public class UtenteDTO extends BaseDTO {
 	}
 
 	// Getter e Setter
-	public String getNome() {
+	public String getNome()
+	{
 		return nome;
 	}
 
-	public void setNome(String nome) {
+	public void setNome(String nome)
+	{
 		this.nome = nome;
 	}
 
-	public String getCognome() {
+	public String getCognome()
+	{
 		return cognome;
 	}
 
-	public void setCognome(String cognome) {
+	public void setCognome(String cognome)
+	{
 		this.cognome = cognome;
 	}
 
 	// Override toString
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return "Utente{" +
 			"id=" + getId() +
 			", nome='" + nome + '\'' +
