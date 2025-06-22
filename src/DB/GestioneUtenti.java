@@ -15,6 +15,11 @@ public class GestioneUtenti
         return listaUtenti;
     }
 
+    public static Optional<UtenteDTO> trovaUtente(int idUtente)
+    {
+        return listaUtenti.stream().filter( u -> u.getId()==idUtente).findFirst();
+    }
+
 
     public static UtenteDTO aggNuovoUtente(String nome, String cognome)
     {
@@ -22,4 +27,5 @@ public class GestioneUtenti
         listaUtenti.add(nuovoUtente); //non ho usato alcun optional poiché ci possono essere utenti omonimi
         return nuovoUtente;
     }
+
 }

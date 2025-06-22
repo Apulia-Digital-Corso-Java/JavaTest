@@ -34,6 +34,62 @@ public class Main {
 			System.out.println(i+1+")"+ GestioneCorsi.getTuttiICorsi().get(i).toString());
 		}
 
+		//ISCRIVO I 3 STUDENTI A VARI CORSI
+
+		System.out.println(GestioneCorsi.iscrUtenteACorso(u1.getId(),"Programmazione Java"));
+		System.out.println(GestioneCorsi.iscrUtenteACorso(u1.getId(),"Programmazione Java")); //ERRORE: utente già iscritto
+		System.out.println(GestioneCorsi.iscrUtenteACorso(u2.getId(),"Programmazione Java"));
+		System.out.println(GestioneCorsi.iscrUtenteACorso(u2.getId(),"HTML e CSS"));
+		System.out.println(GestioneCorsi.iscrUtenteACorso(u2.getId(),"agghahjahjsjahs")); //ERRORE: corso inesistente
+		System.out.println(GestioneCorsi.iscrUtenteACorso(u3.getId(),"Git e GitHub"));
+		System.out.println(GestioneCorsi.iscrUtenteACorso(0,"Git e GitHub")); //ERRORE: utente inesistente
+
+		//STAMPO TUTTI I CORSI A CUI È ISCRITTO L'UTENTE U1
+		System.out.println("L'utente "+u1.getNome()+ " "+ u1.getCognome()+ " è iscritto ai seguenti corsi:");
+		int i=0;
+		for (CorsoDTO corso: GestioneCorsi.getTuttiICorsi())
+		{
+			for (UtenteDTO studente: corso.getListaIscritti())
+			{
+				if (studente.getId()== u1.getId())
+				{
+					System.out.println(i+1+")"+ corso.toString());
+					i++;
+					break;
+				}
+			}
+		}
+		//STAMPO TUTTI I CORSI A CUI È ISCRITTO L'UTENTE U2
+		System.out.println("L'utente "+u2.getNome()+ " "+ u2.getCognome()+ " è iscritto ai seguenti corsi:");
+		i=0;
+		for (CorsoDTO corso: GestioneCorsi.getTuttiICorsi())
+		{
+			for (UtenteDTO studente: corso.getListaIscritti())
+			{
+				if (studente.getId()== u2.getId())
+				{
+					System.out.println(i+1+")"+ corso.toString());
+					i++;
+					break;
+				}
+			}
+		}
+
+		//STAMPO TUTTI I CORSI A CUI È ISCRITTO L'UTENTE U3
+		System.out.println("L'utente "+u3.getNome()+ " "+ u3.getCognome()+ " è iscritto ai seguenti corsi:");
+		i=0;
+		for (CorsoDTO corso: GestioneCorsi.getTuttiICorsi())
+		{
+			for (UtenteDTO studente: corso.getListaIscritti())
+			{
+				if (studente.getId()== u3.getId())
+				{
+					System.out.println(i+1+")"+ corso.toString());
+					i++;
+					break;
+				}
+			}
+		}
 
 
 
@@ -41,21 +97,6 @@ public class Main {
 
 
 
-		/*System.out.println("Tutti i corsi:");
-		GestioneCorso.getTuttiICorsi().forEach(System.out::println);
-
-
-		System.out.println("\nAggiungo un nuovo corso:");
-		boolean aggiunto = GestioneCorso.aggiungiCorso(new CorsoDTO("Informatica Generale", 15));
-		System.out.println(aggiunto ? "Corso aggiunto!" : "Corso già presente.");
-
-		System.out.println("\nElimino un corso:");
-		boolean rimosso = GestioneCorso.rimuoviCorso("Git e GitHub");
-		System.out.println(rimosso ? "Corso rimosso." : "Corso non trovato.");
-
-		System.out.println("\nLista aggiornata:");
-		GestioneCorso.getTuttiICorsi().forEach(System.out::println);
-*/
 
 	}
 }

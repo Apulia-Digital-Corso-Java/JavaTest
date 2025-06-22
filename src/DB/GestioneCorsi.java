@@ -1,6 +1,7 @@
 package DB;
 
 import Dto.CorsoDTO;
+import Dto.UtenteDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,16 +38,15 @@ public class GestioneCorsi
 		return new ArrayList<>(listaCorsi);
 	}
 
-	public static CorsoDTO getCorso(String nomeCorso)
+	public static Optional<CorsoDTO> trovaCorso(String nomeCorso)
 	{
-		Optional<CorsoDTO> trovato = listaCorsi.stream()
+		return listaCorsi.stream()
 			.filter(c -> c.getNomeCorso().equalsIgnoreCase(nomeCorso))
 			.findFirst();
-		return trovato.orElse(null);
 	}
 
 	public static boolean aggiungiCorso(CorsoDTO corso) {
-		if (getCorso(corso.getNomeCorso()) == null) {
+		if (trovaCorso(corso.getNomeCorso()).isEmpty()) {
 			listaCorsi.add(corso);
 			return true;
 		}
@@ -55,6 +55,38 @@ public class GestioneCorsi
 
 	public static boolean rimuoviCorso(String nomeCorso) {
 		return listaCorsi.removeIf(c -> c.getNomeCorso().equalsIgnoreCase(nomeCorso));
+	}
+
+	public static String iscrUtenteACorso(int idStud, String nomeCorso)
+	{
+		Optional<CorsoDTO> corso= trovaCorso(nomeCorso);
+		if (corso.isEmpty())
+		{
+			return "Il corso a cui stai cercando di iscrivere l'utente non esiste. Ritentare";
+		}
+		else
+		{
+			Optional<UtenteDTO> studente= GestioneUtenti.trovaUtente(idStud);
+			if (studente.isEmpty())
+			{
+				return "L'utente che stai cercando di iscrivere al corso non esiste. Ritentare";
+			}
+			else
+			{
+				if (corso.get().trovaIscritto(idStud).isPresent())
+				{
+					return "L'utente è già iscritto a questo corso";
+				}
+				else
+				{
+					corso.get().getListaIscritti().add(studente.get());
+					return "L'utente è stato iscritto al corso correttamente";
+				}
+
+			}
+
+		}
+
 	}
 
 
