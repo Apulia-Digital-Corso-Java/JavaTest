@@ -88,6 +88,30 @@ public class GestioneCorsi
 		}
 
 	}
+	public static String cancUtenteDaCorso(int idStud, String nomeCorso)
+	{
+		Optional<CorsoDTO> corso= trovaCorso(nomeCorso);
+		if (corso.isEmpty())
+		{
+			return "Il corso da cui stai cercando di rimuovere l'utente non esiste. Ritentare";
+		}
+		else
+		{
+			Optional<UtenteDTO> studente= GestioneUtenti.trovaUtente(idStud);
+			if (studente.isEmpty())
+			{
+				return "L'utente che stai cercando di rimuovere dal corso non esiste. Ritentare";
+			}
+			else
+			{
+				corso.get().getListaIscritti().remove(studente.get());
+				return "L'utente è stato disiscritto dal corso correttamente";
+
+			}
+
+		}
+
+	}
 
 
 }

@@ -91,7 +91,22 @@ public class Main {
 			}
 		}
 
+		//STAMPA TUTTI GLI UTENTI ISCRITTI AL CORSO "Programmazione Java"
+		System.out.println("Ecco tutti gli iscritti al corso \"Programmazione Java\"");
+		i=0;
+		for (UtenteDTO studente: GestioneCorsi.trovaCorso("Programmazione Java").get().getListaIscritti())
+		{
+			System.out.println(i+1+")"+studente.getNome()+ " "+ studente.getCognome());
+		}
 
+		//RIMUOVO I 3 STUDENTI DAI VARI CORSI
+
+		System.out.println(GestioneCorsi.cancUtenteDaCorso(u1.getId(),"Programmazione Java"));
+		System.out.println(GestioneCorsi.cancUtenteDaCorso(u2.getId(),"Programmazione Java"));
+		System.out.println(GestioneCorsi.cancUtenteDaCorso(u2.getId(),"HTML e CSS"));
+		System.out.println(GestioneCorsi.cancUtenteDaCorso(u2.getId(),"agghahjahjsjahs")); //ERRORE: corso inesistente
+		System.out.println(GestioneCorsi.cancUtenteDaCorso(u3.getId(),"Git e GitHub"));
+		System.out.println(GestioneCorsi.cancUtenteDaCorso(0,"Git e GitHub")); //ERRORE: utente inesistente
 
 
 
