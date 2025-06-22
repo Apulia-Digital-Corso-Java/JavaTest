@@ -21,25 +21,22 @@ public class Main {
 		System.out.println(a1.login(u1));
 		System.out.println(a1.logout(u1));
 		AccountDTO a2=new AccountDTO("Ghost01","MammaMia2","luigiverdi@gmail.com","1", u2);
-		System.out.println(a1.login(u2));
-		System.out.println(a1.logout(u2));
-		AccountDTO a3=new AccountDTO("QueenUniverse","Luma69","rosalindagalaxy@gmail.com","2", u3);
-		System.out.println(a1.login(u3));
-		System.out.println(a1.logout(u3));
-
-
-
-		System.out.println("\nAggiungo un nuovo corso:");
-		boolean aggiunto = GestioneCorsi.aggiungiCorso(new CorsoDTO("Informatica Generale", 15));
-		System.out.println(aggiunto ? "Corso aggiunto!" : "Corso già presente.");
-		System.out.println(a1.logout(u1));
 		System.out.println(a2.login(u2));
-		//vedi esame
 		System.out.println(a2.logout(u2));
+		AccountDTO a3=new AccountDTO("QueenUniverse","Luma69","rosalindagalaxy@gmail.com","2", u3);
 		System.out.println(a3.login(u3));
-		//vedi esame
 		System.out.println(a3.logout(u3));
-		System.out.println(u1.getId());
+
+		//STAMPO TUTTI I CORSI DISPONIBILI NELLA SCUOLA
+		System.out.println("Ecco tutti i corsi disponibili:");
+		for (int i=0; i<GestioneCorsi.getTuttiICorsi().size(); i++)
+		{
+			System.out.println(i+1+")"+ GestioneCorsi.getTuttiICorsi().get(i).toString());
+		}
+
+
+
+
 
 
 

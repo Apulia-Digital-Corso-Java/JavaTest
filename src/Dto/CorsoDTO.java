@@ -13,18 +13,23 @@ public class CorsoDTO
 	}
 
 	public String getNomeCorso()
+
 	{
 		return nomeCorso;
 	}
 
 	public int getDurata()
+
 	{
 		return durata;
 	}
 
 	@Override
 	public String toString()
+
 	{
 		return nomeCorso + " (" + durata + " ore)";
 	}
+
+
 }

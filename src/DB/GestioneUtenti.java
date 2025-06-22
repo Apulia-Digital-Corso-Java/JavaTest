@@ -20,5 +20,6 @@ public class GestioneUtenti
     {
         UtenteDTO nuovoUtente= new UtenteDTO(nome,cognome);
         listaUtenti.add(nuovoUtente); //non ho usato alcun optional poiché ci possono essere utenti omonimi
+        return nuovoUtente;
     }
 }
